@@ -21,10 +21,10 @@ const Header = () => {
           };
     },[])
   return (
-    <div className="content sticky top-0 z-50">
+    <div className="content sticky top-0 z-40">
         {
             showHeader ? (
-            <div className="main bg-white shadow-lg ">
+            <div className="main bg-white shadow-lg z-40 ">
                 <div className="content mx-6 lg:mx-[130px] flex justify-between items-center">
                     <div className="calender">
                         <div className="menu flex gap-6">

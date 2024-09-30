@@ -8,7 +8,17 @@ import { MdLogin } from "react-icons/md";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import app from '../firebase/auth';
 import { HiBars3 } from "react-icons/hi2";
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { userInfo } from '../redux/slice';
+
 const Modal = () => {
+  //  redux area start
+  const dispatch = useDispatch()
+  const userInfoData = useSelector((item)=>item?.userInfo?.userList) 
+  console.log(userInfoData)
+
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -29,28 +39,38 @@ const Modal = () => {
     .then((result) => {
       setUser(result?.user)
       closeModal()
+      dispatch(userInfo(result?.user))
     })
     .catch((error) => {
       console.log(error);
     });
 };
 
-console.log("login user",user)
+const [dashBord,setDashBord] = useState(false)
   return (
     <div className="">
       <button  className="ed">
             {
              user ?
              (
-               <div className="item">
-                  <div className="image  rounded-full flex items-center gap-4 border px-2 py-2">
+               <div className="item relative">
+                  <div onClick={()=>setDashBord(true)}  className="image  rounded-full flex items-center gap-4 border px-2 py-2">
                      <div className="icon">
                        <HiBars3 className=" text-xl" />
                      </div>
                      <div className="image w-[25px] h-[25px]">
-                         <img className=" rounded-full" src={user?.photoURL} alt="" />
+                         <img className=" rounded-full" src={userInfoData?.photoURL} alt="" />
                      </div>
                   </div>
+                  {
+                    dashBord &&
+                    <div className="dashBord absolute right-0 top-12 w-[150px] bg-white shadow-md rounded-xl ">
+                        <div className="item  flex flex-col    ">
+                           <Link className=" text-start border-b-[1px] py-3 px-4 text-[14px] font-semibold">Dashbord</Link>
+                           <Link className=" text-start py-3 px-4 text-[14px] font-semibold">Log out</Link>
+                        </div>
+                    </div>
+                  }
                </div>
              ):(
             

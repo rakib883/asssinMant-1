@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import Title from "../ui/Title"
+import SafteyVanu from "./SafteyVanu"
 
 
 const TestCoach = () => {
@@ -276,7 +277,9 @@ const TestCoach = () => {
                           <p> Coaching sessions are indoors</p>
                           <p>Equipment provided</p>
                           <p>Up to 10 participants per session</p>
-                          <Link className=" underline text-[#3566eb]">Show more</Link>
+                          <div className="safty">
+                           <SafteyVanu/>
+                         </div>
                       </div>
                     </div>
                     <div className="basic w-[50%]">
@@ -287,7 +290,9 @@ const TestCoach = () => {
                          <p>  First aid kit available</p>
                          <p>Emergency exits clearly marked</p>
                          <p>Fire extinguishers on-site</p>
-                         <Link className=" underline text-[#3566eb]">Show more</Link>
+                         <div className="safty">
+                           <SafteyVanu/>
+                         </div>
                       </div>
                     </div>
                  </div>

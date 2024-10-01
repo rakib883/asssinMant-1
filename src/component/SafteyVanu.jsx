@@ -23,7 +23,7 @@ const SafteyVanu = () => {
                 <div className="main">
                     {isOpen ? 
                         <div className="fixed inset-0  items-center bg-black bg-opacity-50 z-50">
-                            <div className="content max-w-2xl bg-white mx-auto my-14 rounded-lg p-6">
+                            <div className="content xm:bg-black md:bg-white max-w-2xl bg-white mx-auto my-14 rounded-lg p-6">
                                 <div className="title flex justify-between items-center">
                                     <div className="title">
                                         <Title className=" text-[20px]" title="Safety & Venue" />

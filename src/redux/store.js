@@ -1,24 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { persistReducer, persistStore } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; 
-import userDetails from "../redux/slice";  // Corrected import
+import { configureStore } from '@reduxjs/toolkit'
+import set11Slice  from './slice'
 
-
-const persistConfig = {
-  key: 'root',  
-  storage,      
-  whitelist: ['userInfo'] 
-};
-
-
-const persistedReducer = persistReducer(persistConfig, userDetails);  
-
-
-export const store = configureStore({
+export default configureStore({
   reducer: {
-    userInfo: persistedReducer 
+    userDetils : set11Slice
   }
-});
-
-
-export const persistor = persistStore(store);
+})

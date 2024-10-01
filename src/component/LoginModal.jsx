@@ -12,11 +12,13 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userInfo } from '../redux/slice';
 
+
 const Modal = () => {
   //  redux area start
   const dispatch = useDispatch()
-  const userInfoData = useSelector((item)=>item?.userInfo?.userList) 
-  console.log(userInfoData)
+  const userInfoData = useSelector((item)=>item?.userDetils?.user?.user?.photoURL) 
+
+  
 
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -39,7 +41,7 @@ const Modal = () => {
     .then((result) => {
       setUser(result?.user)
       closeModal()
-      dispatch(userInfo(result?.user))
+      dispatch(userInfo({user:result?.user}))
     })
     .catch((error) => {
       console.log(error);
@@ -59,7 +61,7 @@ const [dashBord,setDashBord] = useState(false)
                        <HiBars3 className=" text-xl" />
                      </div>
                      <div className="image w-[25px] h-[25px]">
-                         <img className=" rounded-full" src={userInfoData?.photoURL} alt="" />
+                         <img className=" rounded-full" src={userInfoData} alt="" />
                      </div>
                   </div>
                   {

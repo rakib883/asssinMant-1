@@ -1,20 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-     userList: null
-};
-
-export const userSlice = createSlice({
-  name: 'userSlice',  // Changed the slice name to something meaningful
-  initialState,
-  reducers: {
-      userInfo: (state, action) => {  // Renamed the action to describe its purpose better
-          state.userList = action.payload;
-      }
+export const set11Slice = createSlice({
+  name: 'set11Slice',
+  initialState: {
+    user: null
   },
+  reducers: {
+    userInfo: (state, action) => {
+      state.user = action.payload; // Store serializable user data
+    }
+  }
 });
 
-// Action creators are generated for each case reducer function
-export const { userInfo } = userSlice.actions;
+export const { userInfo } = set11Slice.actions;
 
-export default userSlice.reducer;
+export default set11Slice.reducer;
